@@ -28,12 +28,10 @@ RUN npm install -g serve
 # Copy built files from builder stage
 COPY --from=builder /build/dist ./dist
 
-# Create non-root user
-RUN addgroup -g 1000 appuser && \
-    adduser -D -u 1000 -G appuser appuser && \
-    chown -R appuser:appuser /app
+# Create non-root user (use node user which already exists in node:18-alpine)
+RUN chown -R node:node /app
 
-USER appuser
+USER node
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=10s --retries=3 \
