@@ -1,4 +1,4 @@
-Frontend update for DevOps Pull Request demonstration.
+Frontend update for DevOps Pull Request demonstration file.
 # Waste Recycling Tracker – Frontend
 
 This repository contains the **frontend application** for the Waste Recycling Tracker project.
