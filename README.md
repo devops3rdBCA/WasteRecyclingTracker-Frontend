@@ -91,11 +91,6 @@ Open in browser:
 
 http://localhost:3000
 
-## Notes
-
-Make sure node_modules is not committed to the repository.
-Do not commit .env files or any secret configuration.
-Keep package-lock.json in the repository for consistent installs.
 
 ## License
 
