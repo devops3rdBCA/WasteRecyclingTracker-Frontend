@@ -1,97 +1,160 @@
-# Waste Recycling Tracking System – Frontend
+# Waste Recycling Tracker – Frontend
 
-This project is the frontend of a small waste recycling tracking system built using React and Vite.
+This is the **frontend application** for the Waste Recycling Tracker project.
+It is built using **React and Vite** and provides the user interface for families and recycling centers to manage recyclable waste entries.
 
-The application allows families to submit waste recycling records and lets recycling centers review and manage those submissions. It is designed to work with a backend API, but it can also run without a backend by using the browser's localStorage. This makes it useful for demos, testing, or showcasing the UI.
+The frontend communicates with a **Spring Boot backend API**. If the backend is not available, some features can still work using **browser localStorage**, which helps during testing or demo.
+
+---
 
 ## Features
 
-The application has three main parts.
+### Login Page
 
-Login page
 Users log in to access the system.
 
-Family dashboard
-Families can add, edit, and delete waste entries. Each entry includes the waste type and quantity.
+### Family Dashboard
 
-Recycling center dashboard
-The recycling center can review submitted entries and update the status as the waste moves through the recycling process.
+Families can:
 
-Statistics page
-Shows a summary of the data including total entries, total waste quantity, number of families, waste-type totals, and status breakdowns.
+* Add waste entries
+* View submitted entries
+* Edit waste details
+* Delete entries
 
-## Technologies Used
+Each entry includes:
 
-React 18
-Vite 5
-React Router
-Axios
-Bootstrap 5
-Material UI
+* Waste type
+* Quantity
+* Status
+
+### Recycling Center Dashboard
+
+Recycling centers can:
+
+* View all waste entries
+* Update status
+  **Pending → Processing → Recycled**
+* Remove completed entries
+
+### Statistics Page
+
+Displays summary information such as:
+
+* Total waste entries
+* Total quantity collected
+* Waste type totals
+* Status breakdown
+
+---
+
+## Tech Stack
+
+* React 18
+* Vite
+* React Router
+* Axios
+* Bootstrap 5
+* Material UI
+
+---
+
+## Project Structure
+
+```id="ip4w91"
+frontend/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── public/
+├── package.json
+└── vite.config.js
+```
+
+---
 
 ## Running the Project Locally
 
-Make sure Node.js version 18 or newer is installed.
+Make sure **Node.js 18 or higher** is installed.
 
 Install dependencies:
 
+```id="98erjw"
 npm install
+```
 
 Start the development server:
 
+```id="kp6jv2"
 npm run dev
+```
 
-Open the app in your browser:
+Open the application in your browser:
 
+```id="cs1xqs"
 http://localhost:5173
+```
+
+---
+
+## Environment Configuration
+
+Create a `.env` file in the frontend folder and add:
+
+```id="1a7e3h"
+VITE_API_URL=http://localhost:8081
+```
+
+This variable defines the backend API URL.
+
+---
 
 ## Available Scripts
 
-npm run dev – starts the development server
-npm run build – creates a production build in the dist folder
-npm run preview – runs the production build locally
+`npm run dev` → Starts the development server
 
-## Backend Configuration
+`npm run build` → Builds the project for production
 
-If you have a backend running, you can configure the API URL using an environment variable.
+`npm run preview` → Preview the production build locally
 
-Create a `.env` file and add:
+---
 
-VITE_API_URL=http://localhost:8081
+## Deployment
 
-If this variable is not set, the frontend will use http://localhost:8081 by default.
+The frontend can be deployed using platforms like:
 
-The app first tries to use backend routes under /api. If the backend is not available, the application falls back to localStorage so the basic functionality still works.
+* Vercel
+* Netlify
+* Docker
 
-## Local Storage Keys
+Example Docker build:
 
-The app uses the following keys in the browser:
-
-wasteEntries
-wasteEntriesNextId
-
-## Application Pages
-
-/ – Login page
-/family – Family dashboard
-/center – Recycling center dashboard
-/statistics – Statistics dashboard
-
-## Docker
-
-Build the Docker image:
-
+```id="agp34n"
 docker build -t waste-recycling-frontend .
+```
 
 Run the container:
 
+```id="iqy2wy"
 docker run -p 3000:3000 waste-recycling-frontend
+```
 
-Open in browser:
+---
 
-http://localhost:3000
+## Notes
 
+* Make sure **node_modules** is not pushed to GitHub.
+* Do not commit **.env files**.
+* Always keep **package-lock.json** for consistent installations.
 
-## License
+---
 
-This project currently does not include a license file. Add one if you plan to make the repository public.
+## Author
+
+Built by **Jeynisha E**
+BCA Student | Aspiring Full Stack Developer
