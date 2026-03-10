@@ -6,7 +6,7 @@ It is built using **React and Vite** and provides the user interface for familie
 The frontend communicates with the **Spring Boot backend API** to store and manage data.
 
 ---
-
+Updated frontend documentation
 ## Features
 
 ### Login
