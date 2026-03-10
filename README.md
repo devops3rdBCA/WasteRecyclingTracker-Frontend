@@ -1,4 +1,4 @@
-Frontend update for DevOps Pull Request demonstration file.
+Frontend README updated for DevOps Pull Request demonstration.
 # Waste Recycling Tracker – Frontend
 This repository contains the **frontend application** for the Waste Recycling Tracker project.
 It is built using **React and Vite** and provides the user interface for families and recycling centers to manage recyclable waste entries.
