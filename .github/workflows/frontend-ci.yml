@@ -42,4 +42,4 @@ jobs:
 
       # Push Docker image
       - name: Push Docker Image
-        run: docker push YOUR_DOCKERHUB_USERNAME/waste-recycling-frontend:latest
+        run: docker push jeynisha/waste-recycling-frontend:latest
