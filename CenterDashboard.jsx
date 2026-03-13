@@ -3,7 +3,7 @@ import {
   fetchAllEntries,
   updateEntryStatus,
   deleteEntry,
-} from '../services/api';
+} from './api';
 
 const statuses = ['PENDING', 'PROCESSING', 'RECYCLED'];
 
@@ -120,3 +120,4 @@ const CenterDashboard = () => {
 };
 
 export default CenterDashboard;
+
