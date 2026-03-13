@@ -4,7 +4,7 @@ import {
   createFamilyEntry,
   updateFamilyEntry,
   deleteFamilyEntry,
-} from '../services/api';
+} from './api';
 
 const wasteTypes = ['Plastic', 'Paper', 'Glass', 'Metal', 'Organic', 'Electronics'];
 
@@ -183,3 +183,4 @@ const FamilyDashboard = ({ familyName }) => {
 };
 
 export default FamilyDashboard;
+
