@@ -12,8 +12,9 @@ on:
 
 env:
   REGISTRY: docker.io
-  BACKEND_IMAGE_NAME: ${{ github.repository_owner }}/waste-tracker-backend
-  FRONTEND_IMAGE_NAME: ${{ github.repository_owner }}/waste-tracker-frontend
+  # Use your all-lowercase DockerHub username and lowercase repo names!
+  BACKEND_IMAGE_NAME: jeynisha/waste_recycling_backend
+  FRONTEND_IMAGE_NAME: jeynisha/waste_recycling_frontend
 
 jobs:
   build-backend:
