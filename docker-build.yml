@@ -12,9 +12,10 @@ on:
 
 env:
   REGISTRY: docker.io
-  # Use your all-lowercase DockerHub username and lowercase repo names!
+  # All-lowercase DockerHub username and repo names
   BACKEND_IMAGE_NAME: jeynisha/waste_recycling_backend
   FRONTEND_IMAGE_NAME: jeynisha/waste_recycling_frontend
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true   # Opt-in for Node.js 24 runner compatibility (future proof)
 
 jobs:
   build-backend:
@@ -30,6 +31,9 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
 
       - name: Log in to Docker Hub
         if: github.event_name != 'pull_request'
@@ -73,6 +77,9 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
 
       - name: Log in to Docker Hub
         if: github.event_name != 'pull_request'
