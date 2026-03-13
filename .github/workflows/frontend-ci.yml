@@ -38,7 +38,7 @@ jobs:
 
       # Build Docker image
       - name: Build Docker Image
-        run: docker build -t YOUR_DOCKERHUB_USERNAME/waste-recycling-frontend:latest .
+        run: docker build -t jeynisha/waste-recycling-frontend:latest .
 
       # Push Docker image
       - name: Push Docker Image
