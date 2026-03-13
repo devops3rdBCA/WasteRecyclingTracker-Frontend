@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './LoginPage';
-import FamilyDashboard from './components/FamilyDashboard';
-import CenterDashboard from './components/CenterDashboard';
-import StatisticsDashboard from './components/StatisticsDashboard';
-import Navbar from './components/Navbar';
+import FamilyDashboard from './FamilyDashboard';
+import CenterDashboard from './CenterDashboard';
+import StatisticsDashboard from './StatisticsDashboard';
+import Navbar from './Navbar';
 
 const App = () => {
   const [role, setRole] = useState(null);
@@ -43,4 +43,5 @@ const App = () => {
 };
 
 export default App;
+
 
