@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ... } from './api';
+import { login, fetchStats } from './api';
 
 const StatisticsDashboard = () => {
   const [stats, setStats] = useState(null);
@@ -150,4 +150,5 @@ const StatisticsDashboard = () => {
 };
 
 export default StatisticsDashboard;
+
 
