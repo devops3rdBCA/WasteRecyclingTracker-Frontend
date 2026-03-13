@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../services/api';
+import { login } from './api';
 
 const roles = [
   { label: 'Family User', value: 'family' },
@@ -99,3 +99,4 @@ const LoginPage = ({ onLogin }) => {
 };
 
 export default LoginPage;
+
