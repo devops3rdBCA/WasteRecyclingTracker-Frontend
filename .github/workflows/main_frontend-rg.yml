@@ -39,6 +39,6 @@ jobs:
       - name: Deploy to Azure Web App
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'frontend-rg'   # Change this if your Azure App Service name is different
+          app-name: 'frontend-rg'    # Your Azure App Service name
           slot-name: 'Production'
-          package: 'build'          # This should match your React build output
+          package: 'dist'            # Correct folder for Vite/React build output
