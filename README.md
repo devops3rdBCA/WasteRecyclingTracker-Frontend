@@ -1,20 +1,31 @@
-# Waste Recycling Tracker Frontend
+# Waste Recycling Tracker – Frontend
 
-This is the frontend for a small waste recycling tracking system built with React and Vite.
+This repository contains the **frontend application** for the Waste Recycling Tracker project, built using **React 18** and **Vite**. It provides a UI for both families and recycling centers to manage recyclable waste entries and review statistics.
 
-The app has three main parts:
+The frontend communicates with the **Spring Boot backend API**, but can also fall back to using localStorage for demo/testing if no backend is available.
 
-- a login screen
-- a family dashboard where waste entries can be added, edited, and removed
-- a center dashboard and statistics page for reviewing submissions
+---
 
-It is set up to work with a backend API, but it can also keep working without one by falling back to localStorage in the browser. That makes it useful for demos, testing, or showing the UI without needing the full backend running.
+## Features
 
-## What the app does
+#### Login
+- Users can log in to access the system.
 
-Families can submit waste records by type and quantity. Those entries can then be reviewed by the recycling center, where the status can be updated as the waste moves through the process. The statistics page gives a simple summary of total entries, total quantity, families involved, waste-type totals, and status-based breakdowns.
+#### Family Dashboard
+- Add, view, edit, and delete waste entries
+- Each entry contains: waste type, quantity, and status
 
-## Built with
+#### Recycling Center Dashboard
+- View all submissions
+- Update waste status (`Pending → Processing → Recycled`)
+- Delete recycled entries
+
+#### Statistics Page
+- Total waste entries, quantities, waste type distribution, and status breakdowns
+
+---
+
+## Built With / Tech Stack
 
 - React 18
 - Vite 5
@@ -23,87 +34,117 @@ Families can submit waste records by type and quantity. Those entries can then b
 - Bootstrap 5
 - Material UI
 
-## Running the project locally
+---
 
-Make sure Node.js 18 or newer is installed.
+## Project Structure
+
+```
+frontend/
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── App.jsx
+│   └── main.jsx
+│
+├── public/
+├── package.json
+└── vite.config.js
+```
+
+---
+
+## Running the Project Locally
+
+Make sure **Node.js 18 or later** is installed.
 
 Install dependencies:
-
 ```bash
 npm install
 ```
 
 Start the development server:
-
 ```bash
 npm run dev
 ```
 
-Then open:
-
-```text
+Open:
+```
 http://localhost:5173
 ```
 
-## Available scripts
+---
 
-- npm run dev starts the app in development mode
-- npm run build creates a production build in the dist folder
-- npm run preview serves the production build locally
+## Backend Configuration
 
-## Backend configuration
+If you have a backend running, you can point the frontend to it with this environment variable (in a `.env` file):
 
-If you have a backend running, you can point the frontend to it with this environment variable:
-
-```env
+```
 VITE_API_URL=http://localhost:8081
 ```
+If not set, it defaults to `http://localhost:8081`.  
+The app will fall back to browser localStorage for the main entry and statistics pages if the backend is unavailable.
 
-If that variable is not set, the frontend uses http://localhost:8081 by default.
-
-The app first tries backend routes under /api. If the backend is unavailable for the main entry and statistics flows, the frontend falls back to localStorage so the basic features still work.
-
-The local keys used are:
-
+Keys used in localStorage:
 - wasteEntries
 - wasteEntriesNextId
 
-## Main pages
+---
 
-- / for login
-- /family for the family dashboard
-- /center for the recycling center dashboard
-- /statistics for the statistics dashboard
+## Main Pages
+
+- `/`           – login
+- `/family`     – family dashboard
+- `/center`     – recycling center dashboard
+- `/statistics` – statistics dashboard
+
+---
 
 ## Docker
 
 To build the image:
-
 ```bash
 docker build -t waste-recycling-frontend .
 ```
 
 To run it:
-
 ```bash
 docker run -p 3000:3000 waste-recycling-frontend
 ```
 
-Then open:
-
-```text
+Open:
+```
 http://localhost:3000
 ```
 
-## Before uploading to GitHub
+---
 
-This folder is ready to push, but a few basics are worth checking:
+## Deployment
 
-- keep node_modules out of the repository
-- do not commit secret or machine-specific environment files
-- include package-lock.json so installs stay consistent
-- make sure .gitignore covers local and build artifacts
+You can deploy the frontend using **Vercel** or any static host.
 
-## Final note
+For Vercel:
 
-This project does not currently include a license file. If you plan to make the repository public, add one before sharing it.
+1. Push the project to GitHub
+2. Go to https://vercel.com and import the repository
+3. Add the environment variable:
+    ```
+    VITE_API_URL = your backend API URL
+    ```
+4. Deploy your project
+
+---
+
+## Best Practices Before Uploading to GitHub
+
+- Keep `node_modules` out of the repository
+- Do not commit secret or machine-specific environment files
+- Include `package-lock.json` for consistent installs
+- Make sure `.gitignore` covers local and build artifacts
+
+---
+
+## License
+
+This project does not currently include a license file. If you plan to make the repository public, add one before sharing.
