@@ -31,10 +31,14 @@ RUN echo "=== /etc/passwd ===" && cat /etc/passwd
 RUN mkdir -p /app
 RUN echo "=== /app directory details ===" && ls -ld /app
 
-# Attempt to change ownership
+# Diagnostics and robust user/group creation before chown
+RUN cat /etc/group && cat /etc/passwd
+RUN addgroup -g 1000 appuser 2>/dev/null || true
+RUN adduser -D -u 1000 -G appuser appuser 2>/dev/null || true
+RUN mkdir -p /app
+RUN ls -ld /app
+RUN cat /etc/group && cat /etc/passwd
 RUN chown -R appuser:appuser /app
-
-# === END DIAGNOSTIC SECTION ===
 
 # Copy built files from builder stage
 COPY --from=builder /build/dist ./dist
