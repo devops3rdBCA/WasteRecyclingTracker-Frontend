@@ -32,7 +32,6 @@ COPY --from=builder /build/dist ./dist
 RUN addgroup -g 1000 appuser 2>/dev/null || true
 RUN adduser -D -u 1000 -G appuser appuser 2>/dev/null || true
 RUN mkdir -p /app && chown -R appuser:appuser /app
-=======
 # Ensure /app directory exists, user and group gets created, ownership set
 RUN mkdir -p /app
 RUN addgroup -g 1000 appuser || true
